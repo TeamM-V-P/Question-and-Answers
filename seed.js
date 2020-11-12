@@ -9,14 +9,27 @@ var dates = [new Date(2020, 5, 21), new Date(2019, 8, 3), new Date(2006, 3, 15),
 
 
 
+// for(var i = 0; i < 5; i++) {
+//   console.log({
+//     question: sentences[Math.floor(Math.random() * 6)],
+//     author: people[Math.floor(Math.random() * 12)],
+//     dateWritten: dates[Math.floor(Math.random() * 5)].toDateString(),
+//     questionId: i,
+//     itemId: Math.floor(Math.random() * 100)
+//   });
+// };
+
 for(var i = 0; i < 5; i++) {
   console.log({
-    question: sentences[Math.floor(Math.random() * 6)],
+    answer: sentences[Math.floor(Math.random() * 6)],
     author: people[Math.floor(Math.random() * 12)],
-    dateWritten: dates[Math.floor(Math.random() * 5)].toDateString(),
-    questionId: i,
-    itemId: Math.floor(Math.random() * 100)
-  });
-};
+    helpful: Math.floor(Math.random() * 5),
+    notHelpful: Math.floor(Math.random() * 5),
+    reported: Math.floor(Math.random() * 5),
+    expertSupport: Boolean(Math.round(Math.random())),
+    dateWritten:dates[Math.floor(Math.random() * 5)].toDateString(),
+    questionId: i
+  })
+}
 
 
