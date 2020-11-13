@@ -4,7 +4,8 @@
   "description": "",
   "main": "seed.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react-dev": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,22 @@
   "bugs": {
     "url": "https://github.com/TeamM-V-P/Question-and-Answers/issues"
   },
-  "homepage": "https://github.com/TeamM-V-P/Question-and-Answers#readme"
+  "homepage": "https://github.com/TeamM-V-P/Question-and-Answers#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "express": "^4.17.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.10.14",
+    "morgan": "^1.10.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "webpack": "^5.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "babel-loader": "^8.2.1",
+    "webpack-cli": "^4.2.0"
+  }
 }
