@@ -33,7 +33,7 @@ class Question extends React.Component {
   render() {
     return <div style={{borderBottom: '1px solid gray', marginBottom: 15}}>
       <b>Q: {this.props.question.question}</b>
-  <h5 style={{color: 'grey', marginTop: 5}}>{this.props.question.author}— {<ReactTimeAgo date={this.props.question.dateWritten} locale='en-US'/>}</h5>
+      <h5 style={{color: 'grey', marginTop: 5}}>{this.props.question.author}— {<ReactTimeAgo date={this.props.question.dateWritten} locale='en-US'/>}</h5>
       {this.state.answers.map((answer) => {
         return <Answer answer={answer}/>
       })}

@@ -1,17 +1,58 @@
 import React from 'react';
 import ReactTimeAgo from 'react-time-ago';
+import Feedback from './feedback.jsx';
+import axios from 'axios';
 
 
 
 class Answer extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      feedback: <div/>
+    }
+
     this.renderExertSupport = this.renderExertSupport.bind(this)
+    this.handleHelpfulClick = this.handleHelpfulClick.bind(this)
+    this.handleNotHelpfulClick = this.handleNotHelpfulClick.bind(this)
+    this.handleReportClick = this.handleReportClick.bind(this)
+  }
+
+  componentDidMount() {
+    this.setState({
+      feedback: <Feedback
+        answer={this.props.answer}
+        handleHelpfulClick={this.handleHelpfulClick}
+        handleNotHelpfulClick={this.handleNotHelpfulClick}
+        handleReportClick={this.handleReportClick}
+      />
+    })
   }
 
   renderExertSupport() {
     if(this.props.answer.expertSupport){
-      return <h6 style={{color: 'rgb(204, 0, 0)', marginTop: 0, marginBottom: 15}}>Target Expert Support</h6>}
+      return <h6 style={{color: 'rgb(204, 0, 0)', marginTop: 0, marginBottom: 15}}>Target Expert Support</h6>
+    }
+  }
+
+
+  handleHelpfulClick() {
+    this.setState({
+    feedback: <span style={{color: 'black', fontWeight: 'bold', marginLeft: 10}}>{`Helpful (${this.props.answer.helpful + 1})`}</span>
+    })
+  }
+
+  handleNotHelpfulClick() {
+    this.setState({
+    feedback: <span style={{color: 'black', fontWeight: 'bold', marginLeft: 10}}>{`Not helpful (${this.props.answer.notHelpful + 1})`}</span>
+    })
+  }
+
+  handleReportClick() {
+    this.setState({
+    feedback: <span style={{color: 'black', fontWeight: 'bold', marginLeft: 10}}>{`Reported`}</span>
+    })
   }
 
 
@@ -24,9 +65,7 @@ class Answer extends React.Component {
         marginTop: 4,
         marginBottom: 7
       }}>{this.props.answer.author}— {<ReactTimeAgo date={this.props.answer.dateWritten}  locale='en-US'/>}
-      <span style={{textDecoration: 'underline', marginLeft: 10}}>{`Helpful (${this.props.answer.helpful})`}</span>
-      <span style={{textDecoration: 'underline', marginLeft: 10}}>{`Not helpful (${this.props.answer.notHelpful})`}</span>
-      <span style={{textDecoration: 'underline', marginLeft: 10}}>{`Report`}</span>
+      {this.state.feedback}
     </h5>
     {this.renderExertSupport()}
     </div>
