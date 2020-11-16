@@ -6,8 +6,8 @@ const questionSchema = new mongoose.Schema({
   question: String,
   author: String,
   dateWritten: Date,
-  questionID: Number,
-  itemID: Number
+  questionId: Number,
+  itemId: Number
 });
 
 const answerSchema = new mongoose.Schema({
