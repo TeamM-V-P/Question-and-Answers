@@ -38,21 +38,39 @@ class Answer extends React.Component {
 
 
   handleHelpfulClick() {
-    this.setState({
-    feedback: <span style={{color: 'black', fontWeight: 'bold', marginLeft: 10}}>{`Helpful (${this.props.answer.helpful + 1})`}</span>
-    })
+    axios.put(`/api/answers/${this.props.answer._id}`, {helpful: this.props.answer.helpful + 1})
+      .then(() => {
+        this.setState({
+          feedback: <span style={{color: 'black', fontWeight: 'bold', marginLeft: 10}}>{`Helpful (${this.props.answer.helpful + 1})`}</span>
+        })
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   }
 
   handleNotHelpfulClick() {
-    this.setState({
-    feedback: <span style={{color: 'black', fontWeight: 'bold', marginLeft: 10}}>{`Not helpful (${this.props.answer.notHelpful + 1})`}</span>
-    })
+    axios.put(`/api/answers/${this.props.answer._id}`, {notHelpful: this.props.answer.notHelpful + 1})
+      .then(() => {
+        this.setState({
+          feedback: <span style={{color: 'black', fontWeight: 'bold', marginLeft: 10}}>{`Not helpful (${this.props.answer.notHelpful + 1})`}</span>
+        })
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   }
 
   handleReportClick() {
-    this.setState({
-    feedback: <span style={{color: 'black', fontWeight: 'bold', marginLeft: 10}}>{`Reported`}</span>
-    })
+    axios.put(`/api/answers/${this.props.answer._id}`, {reported: this.props.answer.reported + 1})
+      .then(() => {
+        this.setState({
+          feedback: <span style={{color: 'black', fontWeight: 'bold', marginLeft: 10}}>{`Reported`}</span>
+        })
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   }
 
 
