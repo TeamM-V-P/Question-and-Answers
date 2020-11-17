@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 mongoose.connect('mongodb://localhost/Q&A');
 mongoose.Promise = global.Promise;
 
@@ -7,7 +8,7 @@ const questionSchema = new mongoose.Schema({
   author: String,
   dateWritten: Date,
   questionId: Number,
-  itemId: Number
+  itemId: Number,
 });
 
 const answerSchema = new mongoose.Schema({
@@ -18,7 +19,7 @@ const answerSchema = new mongoose.Schema({
   reported: Number,
   expertSupport: Boolean,
   dateWritten: Date,
-  questionId: Number
+  questionId: Number,
 });
 
 const question = mongoose.model('Question', questionSchema);
