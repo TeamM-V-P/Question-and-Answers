@@ -20,6 +20,7 @@ class AnswerButton extends React.Component {
   }
 
   render() {
+    const { opacity } = this.state;
     return (
       <div
         className="p-tooltip"
@@ -30,6 +31,7 @@ class AnswerButton extends React.Component {
           textAlign: 'center',
           width: 70,
           backgroundColor: 'white',
+          borderRadius: 4,
         }}
         onClick={(e) => {
           this.setState({
@@ -47,10 +49,10 @@ class AnswerButton extends React.Component {
           }
         }}
       >
-        <div className="p-tooltip-content" style={{ opacity: this.state.opacity }}>
+        <div className="p-tooltip-content" style={{ opacity }}>
           <div style={{ margin: 10, color: 'white', width: 130 }}>sign in to answer</div>
         </div>
-        <div className="p-tooltip-arrow" style={{ opacity: this.state.opacity }} />
+        <div className="p-tooltip-arrow" style={{ opacity }} />
         Answer it
       </div>
     );

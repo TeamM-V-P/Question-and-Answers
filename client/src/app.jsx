@@ -12,13 +12,22 @@ class App extends React.Component {
 
     this.state = {
       questions: [],
+      show: 2,
     };
 
     this.getItemQuestions = this.getItemQuestions.bind(this);
+    this.handleShowAll = this.handleShowAll.bind(this);
   }
 
   componentDidMount() {
     this.getItemQuestions();
+  }
+
+  handleShowAll() {
+    const { questions } = this.state;
+    this.setState({
+      show: questions.length,
+    });
   }
 
   getItemQuestions() {
@@ -34,12 +43,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { questions } = this.state;
+    const { questions, show } = this.state;
     return (
       <div style={{ fontFamily: 'Helvetica, sans-serif', backgroundColor: 'rgb(249,249,249)', padding: 30 }}>
-        <About />
-        {questions.map((question) => <Question question={question} />)}
-        <QeustionButtons />
+        <About amount={questions.length} />
+        {questions.map((question) => <Question question={question} />).slice(0, show)}
+        <QeustionButtons showAll={this.handleShowAll} />
       </div>
     );
   }

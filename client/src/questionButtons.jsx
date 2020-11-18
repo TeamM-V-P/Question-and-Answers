@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
@@ -19,6 +20,8 @@ class QuestionButtons extends React.Component {
   }
 
   render() {
+    const { opacity } = this.state;
+    const { showAll } = this.props;
     return (
       <div style={{ boxSizing: 'border-box', display: 'flex' }}>
         <div
@@ -39,6 +42,7 @@ class QuestionButtons extends React.Component {
           onMouseLeave={(e) => {
             e.target.style.backgroundColor = 'white';
           }}
+          onClick={showAll}
         >
           See all questions
         </div>
@@ -57,7 +61,7 @@ class QuestionButtons extends React.Component {
             borderColor: 'rgb(204, 0, 0)',
             color: 'white',
           }}
-          onClick={(e) => {
+          onClick={() => {
             this.setState({
               opacity: 1,
             });
@@ -75,10 +79,10 @@ class QuestionButtons extends React.Component {
             }
           }}
         >
-          <div className="p-tooltip-content" style={{ opacity: this.state.opacity }}>
+          <div className="p-tooltip-content" style={{ opacity }}>
             <div style={{ margin: 10 }}>sign in to ask a question</div>
           </div>
-          <div className="p-tooltip-arrow" style={{ opacity: this.state.opacity }} />
+          <div className="p-tooltip-arrow" style={{ opacity }} />
           Ask a question
         </div>
       </div>

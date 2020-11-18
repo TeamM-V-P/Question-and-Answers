@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-function About() {
+function About(props) {
+  const { amount } = props;
   return (
     <div style={{ padding: 12, margin: 13, borderBottom: '1px solid gray' }}>
       <h2 style={{ margin: '0px auto 20px auto', display: 'table' }}>About this item</h2>
@@ -40,7 +42,7 @@ function About() {
           margin: '0px 20px',
         }}
         >
-          Q&A
+          {`Q&A (${amount})`}
         </li>
       </ul>
     </div>
