@@ -6,6 +6,7 @@ import React from 'react';
 import Answer from './answer.jsx';
 import axios from 'axios';
 import ReactTimeAgo from 'react-time-ago';
+import AnswerButton from './answerButton.jsx';
 
 class Question extends React.Component {
   constructor(props) {
@@ -41,16 +42,16 @@ class Question extends React.Component {
     return (
       <div style={{ borderBottom: '1px solid gray', marginBottom: 15 }}>
         <b>
-          `Q: `
+          {'Q: '}
           {question.question}
         </b>
         <h5 style={{ color: 'grey', marginTop: 5 }}>
           {question.author}
-          `— `
+          {'— '}
           <ReactTimeAgo date={question.dateWritten} locale="en-US" />
         </h5>
         {answers.map((answer) => <Answer answer={answer} />)}
-        <input type="submit" value="Answer it" style={{ margin: '0px 0px 15px 20px' }} />
+        <AnswerButton />
       </div>
     );
   }

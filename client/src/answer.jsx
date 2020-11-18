@@ -23,7 +23,7 @@ class Answer extends React.Component {
   }
 
   componentDidMount() {
-    const { answer } = this.state;
+    const { answer } = this.props;
     this.setState({
       feedback: <Feedback
         answer={answer}
@@ -94,11 +94,11 @@ class Answer extends React.Component {
         }}
         >
           {answer.author}
-          `— `
+          {'— '}
           <ReactTimeAgo date={answer.dateWritten} locale="en-US" />
           {feedback}
         </h5>
-        {this.renderExertSupport()}
+        {this.renderExpertSupport()}
       </div>
     );
   }
