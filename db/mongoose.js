@@ -20,6 +20,7 @@ const answerSchema = new mongoose.Schema({
   expertSupport: Boolean,
   dateWritten: Date,
   questionId: Number,
+  answerId: Number,
 });
 
 const question = mongoose.model('Question', questionSchema);
