@@ -10,6 +10,6 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
-app.use('/', router);
+app.use('/api/q&a', router);
 
 module.exports = app;

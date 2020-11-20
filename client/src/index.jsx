@@ -12,4 +12,4 @@ import ru from 'javascript-time-ago/locale/ru';
 TimeAgo.addDefaultLocale(en);
 TimeAgo.addLocale(ru);
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('service3'));

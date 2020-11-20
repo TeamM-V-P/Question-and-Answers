@@ -31,7 +31,7 @@ class App extends React.Component {
   }
 
   getItemQuestions() {
-    axios.get(`/api/questions/${Math.floor(Math.random() * 100)}`)
+    axios.get(`/api/q&a/questions/${Math.floor(Math.random() * 100)}`)
       .then((result) => {
         this.setState({
           questions: result.data,

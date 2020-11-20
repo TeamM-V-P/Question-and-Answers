@@ -2,7 +2,7 @@
 const router = require('express').Router();
 const db = require('../db/mongoose.js');
 
-router.route('/api/questions/:id')
+router.route('/questions/:id')
   .get((req, res) => {
     db.question.find({ itemId: req.params.id })
       .then((results) => {
@@ -47,7 +47,7 @@ router.route('/api/questions/:id')
       });
   });
 
-router.route('/api/answers/:id')
+router.route('/answers/:id')
   .get((req, res) => {
     db.answer.find({ questionId: req.params.id })
       .then((results) => {
@@ -70,7 +70,7 @@ router.route('/api/answers/:id')
       });
   });
 
-router.route('/api/answer/:id')
+router.route('/answer/:id')
   .get((req, res) => {
     db.answer.find({ answerId: req.params.id })
       .then((results) => {
@@ -105,7 +105,7 @@ router.route('/api/answer/:id')
       });
   });
 
-router.route('/api/questions/')
+router.route('/questions/')
   .get((req, res) => {
     db.question.find({})
       .then((results) => {
@@ -129,7 +129,7 @@ router.route('/api/questions/')
       });
   });
 
-router.route('/api/answers/')
+router.route('/answers/')
   .get((req, res) => {
     db.answer.find({})
       .then((results) => {
