@@ -25,7 +25,7 @@ class Question extends React.Component {
 
   getAnswers() {
     const { question } = this.props;
-    axios.get(`/api/answers/${question.questionId}`)
+    axios.get(`/api/q&a/answers/${question.questionId}`)
       .then((result) => {
         this.setState({
           answers: result.data,
