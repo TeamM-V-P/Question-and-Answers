@@ -45,7 +45,7 @@ class App extends React.Component {
   render() {
     const { questions, show } = this.state;
     return (
-      <div style={{ fontFamily: 'Helvetica, sans-serif', backgroundColor: 'rgb(249,249,249)', padding: 30 }}>
+      <div style={{ fontFamily: 'Helvetica, sans-serif', backgroundColor: 'rgb(249,249,249)', padding: 30, marginTop: 150 }}>
         <About amount={questions.length} />
         {questions.map((question) => <Question question={question} />).slice(0, show)}
         <QeustionButtons showAll={this.handleShowAll} />
