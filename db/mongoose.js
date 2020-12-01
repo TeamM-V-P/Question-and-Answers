@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/Q&A');
+mongoose.connect('mongodb://database/Q&A');
 mongoose.Promise = global.Promise;
 
 const questionSchema = new mongoose.Schema({

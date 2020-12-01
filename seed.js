@@ -1,8 +1,8 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable max-len */
 /* eslint-disable no-console */
-const db = require('./db/mongoose.js');
 const mongoose = require('mongoose');
+const db = require('./db/mongoose.js');
 
 const people = ['Benny', 'Jimmy', 'Dorithy', 'Harold', 'Carol', 'borkus bobulous', 'Ken', 'Fernando', 'Portia', 'spongeBob', 'Helga', 'Otis'];
 

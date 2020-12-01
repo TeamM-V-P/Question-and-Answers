@@ -1,10 +1,12 @@
 FROM node:10.15.3
 
-RUN mkdir /usr/src/app
+RUN mkdir -p /src/app
 
-WORKDIR /usr/src/app
+WORKDIR /src/app
 
-COPY . /usr/src/app
+COPY package*.json /src/app/
+
+COPY . /src/app/
 
 RUN npm install
 
