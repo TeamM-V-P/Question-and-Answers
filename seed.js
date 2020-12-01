@@ -1,6 +1,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable max-len */
 /* eslint-disable no-console */
+const mongoose = require('mongoose');
 const db = require('./db/mongoose.js');
 
 const people = ['Benny', 'Jimmy', 'Dorithy', 'Harold', 'Carol', 'borkus bobulous', 'Ken', 'Fernando', 'Portia', 'spongeBob', 'Helga', 'Otis'];
@@ -15,7 +16,7 @@ const dates = [new Date(2020, 5, 21), new Date(2019, 8, 3), new Date(2006, 3, 15
 const questions = [];
 const answers = [];
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 300; i++) {
   questions.push({
     question: sentences[Math.floor(Math.random() * 6)],
     author: people[Math.floor(Math.random() * 12)],
@@ -25,7 +26,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < 600; i++) {
   answers.push({
     answer: sentences[Math.floor(Math.random() * 6)],
     author: people[Math.floor(Math.random() * 12)],
@@ -34,7 +35,7 @@ for (let i = 0; i < 200; i++) {
     reported: Math.floor(Math.random() * 5),
     expertSupport: Boolean(Math.round(Math.random())),
     dateWritten: dates[Math.floor(Math.random() * 5)].toDateString(),
-    questionId: Math.floor(Math.random() * 100),
+    questionId: Math.floor(Math.random() * 300),
     answerId: i,
   });
 }
@@ -50,22 +51,20 @@ db.question.deleteMany({})
         console.error(err);
       });
   })
-  .catch((err) => {
-    console.error(err);
-  });
-db.answer.deleteMany({})
   .then(() => {
-    console.log('answers deleted');
-    db.answer.create(answers)
+    db.answer.deleteMany({})
       .then(() => {
-        console.log('questions loaded');
-      })
-      .catch((err) => {
-        console.error(err);
+        console.log('answers deleted');
+        db.answer.create(answers)
+          .then(() => {
+            console.log('questions loaded');
+            mongoose.connection.close();
+          })
+          .catch((err) => {
+            console.error(err);
+          });
       });
   })
   .catch((err) => {
     console.error(err);
   });
-
-module.exports = (x, y) => x + y;
