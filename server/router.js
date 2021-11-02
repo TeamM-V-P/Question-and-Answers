@@ -94,7 +94,7 @@ router.route('/answer/:id')
       });
   })
   .put((req, res) => {
-    db.answer.findOneAndUpdate({ answerId: req.params.id }, req.body)
+    db.answer.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(() => {
         console.log('updated item');
         res.status(200).end();

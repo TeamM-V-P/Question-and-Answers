@@ -1,0 +1,85 @@
+body {margin:0px;}
+
+.app {
+    font-family: Helvetica, sans-serif; background-Color: rgb(249,249,249);
+    padding: 30px;
+}
+.p-tooltip {
+    /* Used to position the arrow */
+    position: relative;
+}
+
+/* Show the arrow and content when hovering the trigger element */
+
+.p-tooltip-arrow {
+    /* Invisible by default */
+    opacity: 0;
+
+    /* Border */
+    border: 8px solid transparent;
+    border-top-color: black;
+
+    /* Position */
+    bottom: 100%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 8px);
+
+    /* Zero size */
+    height: 0;
+    width: 0;
+
+    /* Displayed on top of other element */
+    z-index: 10;
+}
+
+.p-tooltip-content {
+    /* Invisible by default */
+    opacity: 0;
+
+    /* Background color, must be the same as the border color of arrow */
+    background-color: black;
+    border-radius: 2px;
+
+    /* Position */
+    bottom: 100%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -8px);
+
+    /* Displayed on top of other element */
+    z-index: 10;
+}
+
+.textBox {
+  /* position: fixed;
+  z-index: 1; */
+  border: 1px solid black;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 4px;
+  width: 50%;
+  height: 210px;
+  justify-content: space-between;
+
+}
+
+.nameInput {
+    width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    height: 25px;
+
+}
+
+.answerInput {
+    width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 80px;
+    resize: none;
+
+}

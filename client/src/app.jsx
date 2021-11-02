@@ -3,7 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import Question from './question.jsx';
-import QeustionButtons from './questionButtons.jsx';
+import QuestionButtons from './questionButtons.jsx';
 import About from './aboutBar.jsx';
 
 class App extends React.Component {
@@ -45,10 +45,10 @@ class App extends React.Component {
   render() {
     const { questions, show } = this.state;
     return (
-      <div style={{ fontFamily: 'Helvetica, sans-serif', backgroundColor: 'rgb(249,249,249)', padding: 30, marginTop: 150 }}>
+      <div className="app" >
         <About amount={questions.length} />
         {questions.map((question) => <Question question={question} />).slice(0, show)}
-        <QeustionButtons showAll={this.handleShowAll} />
+        <QuestionButtons showAll={this.handleShowAll} />
       </div>
     );
   }

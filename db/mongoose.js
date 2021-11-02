@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://database/Q&A');
+mongoose.connect('mongodb://127.0.0.1/Q&A', { useNewUrlParser: true, useUnifiedTopology: true })
+  .catch((err) => {
+    console.error(err);
+  });
 mongoose.Promise = global.Promise;
 
 const questionSchema = new mongoose.Schema({
